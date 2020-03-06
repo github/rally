@@ -1,0 +1,22 @@
+---
+version: 1
+ownership:
+  - name: probot-rally
+    long_name: Probot Rally
+    description: Probot app to integrate GitHub with Rally
+    kind: team
+    maintainer: primetheus
+    team: github/services-delivery
+    product_manager: mattcantstop
+    repo: https://github.com/github/probot-rally
+    mention: github/services-delivery
+    sev1:
+      issue: https://github.com/github/probot-rally/issues
+      tta: '2 business days'
+    sev2:
+      issue: https://github.com/github/probot-rally/issues
+      tta: '2 business days'
+    sev3:
+      slack: 'services-notify'
+      tta: None
+    qos: best_effort
