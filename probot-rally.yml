@@ -1,17 +1,17 @@
 ---
 # Name of the GitHub Check
-checksName: rally/issue-validator
+checksName: rally/validator
 
-# Check PR Labels for Rally issue (true | false)
+# Check PR Labels for Rally story/defect (true | false)
 checkPRLabels: true
 
-# Check PR Body for Jira issue (true | false)
+# Check PR Body for Rally story/defect (true | false)
 checkPRBody: true
 
-# Check PR Title for Jira issue (true | false)
+# Check PR Title for Rally story/defect (true | false)
 checkPRTitle: true
 
-# Check all commit messages for a Jira issue (true | false)
+# Check all commit messages for a Rally story/defect (true | false)
 checkCommitMessages: true
 
 # Which workspace OID this repo will link to
