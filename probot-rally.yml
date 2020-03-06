@@ -1,0 +1,31 @@
+---
+# Name of the GitHub Check
+checksName: rally/issue-validator
+
+# Check PR Labels for Rally issue (true | false)
+checkPRLabels: true
+
+# Check PR Body for Jira issue (true | false)
+checkPRBody: true
+
+# Check PR Title for Jira issue (true | false)
+checkPRTitle: true
+
+# Check all commit messages for a Jira issue (true | false)
+checkCommitMessages: true
+
+# Which workspace OID this repo will link to
+rallyWorkspace: 12345
+
+# Which project OID this repo will link to
+rallyProject: 12345
+
+# List of valid Rally objects to check
+rallyObjects: ['defect', 'userstory']
+
+# List of Rally statuses that an issue must be in in order to pass
+issueStatuses: ['Open', 'To Do', 'In Progress']
+
+# Comment on the PR in addition to the check message? (true | false)
+commentOnPull: false
+
