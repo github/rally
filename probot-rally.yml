@@ -24,7 +24,7 @@ rallyProject: 12345
 rallyObjects: ['defect', 'userstory']
 
 # List of Rally statuses that an issue must be in in order to pass
-issueStatuses: ['Open', 'To Do', 'In Progress']
+issueStatuses: ['Defined', 'In-Progress']
 
 # Comment on the PR in addition to the check message? (true | false)
 commentOnPull: false
