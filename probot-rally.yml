@@ -17,10 +17,18 @@ checkCommitMessages: true
 # Which workspace OID this repo will link to
 rallyWorkspace: 12345
 
-# Which project OID this repo will link to
-rallyProject: 12345
+# Which projects this repo will link to
+rallyProjects: ['Sample Project', 'devops-engineering']
 
 # List of valid Rally objects to check
+  # Valid values: 
+    # defect
+    # defectsuite
+    # task
+    # testcase
+    # hierarchicalrequirement
+    # userstory
+    # story
 rallyObjects: ['defect', 'userstory']
 
 # List of Rally statuses that an issue must be in in order to pass
