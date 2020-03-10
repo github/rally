@@ -37,3 +37,10 @@ artifactStatuses: ['Defined', 'In-Progress']
 # Comment on the PR in addition to the check message? (true | false)
 commentOnPull: false
 
+rally:
+  server: https://rally1.rallydev.com
+  # Leave these blank if you use an API key
+  #username: rallyUser
+  #password: rallyPass
+  # This is required if we don't use username/password
+  api_key: _1234abc567...
