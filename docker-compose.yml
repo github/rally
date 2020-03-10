@@ -1,0 +1,26 @@
+---
+###################################
+# Docker compose for Probot-Rally #
+###################################
+
+###########
+# Version #
+###########
+version: '3.3'
+
+####################
+# Set the services #
+####################
+services:
+    probot-rally:
+        # Set the open ports
+        ports:
+            - '3000:3000'
+        # Set to restart on error
+        restart: always
+        # Set logging informatgion
+        logging:
+            options:
+                max-size: 1g
+        # Start the image
+        image: probot-rally

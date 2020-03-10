@@ -1,0 +1,21 @@
+---
+##########################################
+##########################################
+## Mona recipe file for building probot ##
+##########################################
+##########################################
+
+# Legend:
+# This file is used by GitHub Services hubot 'mona'
+# To build and deploy the Probot app for testing, demo,
+# and general automation
+
+##############
+# Build Vars #
+##############
+docker_tag: probot-rally
+
+###############
+# Deploy Vars #
+###############
+deploy_port: 3001
