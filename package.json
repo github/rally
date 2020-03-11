@@ -17,11 +17,12 @@
   "scripts": {
     "dev": "nodemon",
     "start": "probot run ./index.js",
-    "lint": "standard --fix",
-    "test": "jest && standard",
+    "lint": "./node_modules/.bin/eslint .",
+    "test": "jest",
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
+    "outdent": "^0.7.0",
     "probot": "^9.5.3",
     "rally": "^2.1.3"
   },

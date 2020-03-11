@@ -17,15 +17,30 @@ checkCommitMessages: true
 # Which workspace OID this repo will link to
 rallyWorkspace: 12345
 
-# Which project OID this repo will link to
-rallyProject: 12345
+# Which projects this repo will link to
+rallyProjects: ['Sample Project', 'devops-engineering']
 
 # List of valid Rally objects to check
+  # Valid values: 
+    # defect
+    # defectsuite
+    # task
+    # testcase
+    # hierarchicalrequirement
+    # userstory
+    # story
 rallyObjects: ['defect', 'userstory']
 
 # List of Rally statuses that an issue must be in in order to pass
-issueStatuses: ['Defined', 'In-Progress']
+artifactStatuses: ['Defined', 'In-Progress']
 
 # Comment on the PR in addition to the check message? (true | false)
 commentOnPull: false
 
+rally:
+  server: https://rally1.rallydev.com
+  # Leave these blank if you use an API key
+  #username: rallyUser
+  #password: rallyPass
+  # This is required if we don't use username/password
+  api_key: _1234abc567...
