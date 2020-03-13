@@ -2,12 +2,12 @@
 
 A **GitHub App** built with [Probot](https://github.com/probot/probot) that can be configured to:
 
-- Check the `title` of a Pull Request for valid **Rally** issues
-- Check the `body` of a Pull Request for valid **Rally** issues
-- Check the `labels` of a Pull Request for valid **Rally** issues
-- Check the `commit messages` of a Pull Request for valid **Rally** issues
+- Check the `title` of a Pull Request for valid **Rally** artifacts
+- Check the `body` of a Pull Request for valid **Rally** artifacts
+- Check the `labels` of a Pull Request for valid **Rally** artifacts
+- Check the `commit messages` of a Pull Request for valid **Rally** artifacts
 
-The **GitHub App** will update the **Checks API** with success/failure as the conditions are met, and provide a detailed report of the issues found and their states in **Rally**.
+The **GitHub App** will update the **Checks API** with success/failure as the conditions are met, and provide a detailed report of the artifacts (i.e. defects, user stories) found and their Flow States in **Rally**.
 
 ## Get Started
 
@@ -15,7 +15,7 @@ The **GitHub App** will update the **Checks API** with success/failure as the co
 
 ### How it Works
 
-Every time a pull request is created or updated, `Probot-rally` will check for the existence of a **Rally User Story** in the `label`, `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
+Every time a pull request is created or updated, `Probot-rally` will check for the existence of a **Rally User Story** or **Defect** in the `label`, `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
 
 ```yml
 ---
@@ -34,13 +34,10 @@ checkPRTitle: true
 # Check all commit messages for a Rally story/defect (true | false)
 checkCommitMessages: true
 
-# Which workspace OID this repo will link to
-rallyWorkspace: 12345
-
 # Which projects this repo will link to
 rallyProjects: ['Sample Project', 'devops-engineering']
 
-# List of valid Rally objects to check
+# List of valid Rally artifacts to check
   # Valid values:
     # defect
     # defectsuite
@@ -64,6 +61,8 @@ rally:
   #password: rallyPass
   # This is required if we don't use username/password
   api_key: _1234abc567...
+  # Which workspace OID this repo will link to
+  workspace: 12345
 
 ```
 
