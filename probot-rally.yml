@@ -14,9 +14,6 @@ checkPRTitle: true
 # Check all commit messages for a Rally story/defect (true | false)
 checkCommitMessages: true
 
-# Which workspace OID this repo will link to
-rallyWorkspace: 12345
-
 # Which projects this repo will link to
 rallyProjects: ['Sample Project', 'devops-engineering']
 
@@ -39,8 +36,12 @@ commentOnPull: false
 
 rally:
   server: https://rally1.rallydev.com
+
   # Leave these blank if you use an API key
   #username: rallyUser
   #password: rallyPass
   # This is required if we don't use username/password
   api_key: _1234abc567...
+
+  # Which workspace OID this repo will link to
+  workspace: 12345
