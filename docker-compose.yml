@@ -23,4 +23,4 @@ services:
             options:
                 max-size: 1g
         # Start the image
-        image: probot-rally
+        image: github/probot-rally
