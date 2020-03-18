@@ -73,7 +73,7 @@ rally:
 - Create a new **GitHub App** with the following settings:
   - **Webhook URL**: URL of the machine on which this app has been deployed (Example: `http://ip.of.machine:3000`)
   - **Homepage URL**: URL of the machine on which this app has been deployed (Example: `http://ip.of.machine:3000`)
-  - **Webhook Secret**: The webhook secret that will be or has been defined as an environment variable in your deployment environment as WEBHOOK_SECRET
+  - **Webhook Secret**: The webhook secret that will be or has been defined as an environment variable in your deployment environment as `WEBHOOK_SECRET`
   - **Permissions**:
     - **Checks**: Read & write
     - **Commit statuses**: Read & write
