@@ -142,9 +142,8 @@ One of the following is **required**:
   (Example: `PRIVATE_KEY_PATH='path/to/key.pem'`)
 
 ## How users can consume Probot-Rally GitHub App
-Once you have the **GitHub App** up and running, users will need to complete the following step to have the **GitHub App** validate their repositories:
-- Add the configuration file to **master** branch
-  - `.github/probot-rally.yml`
+Once you have the **GitHub App** up and running, users will need to add the configuration file to **master** branch to have the **GitHub App** validate their repositories: `.github/probot-rally.yml`
+
 - Having this file in the root of the repository is what signals the **Probot-Rally GitHub App** to view all configured events for the repository
 - The configuration file allows users to make small customizations to how the bot interacts with their codebase
 - Users will also want to configure `protected branches` to help make sure all rules are followed and enforced by the validator bot
