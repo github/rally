@@ -67,7 +67,7 @@ rally:
 ```
 
 ### Creating the GitHub App on your GitHub instance
-- On your GitHub instance, visit the `settings` page on the Organization that you want to own the **GitHub** App, and navigate to the `GitHub Apps` section
+- On your GitHub instance, visit the `settings` page on the Organization that you want to own the **GitHub** App, and navigate to the `GitHub Apps` section.
   - You can access this page by visiting the following url:
     `https://<MY_GITHUB_HOSTNAME>/organizations/<MY_ORG_NAME>/settings/apps`
 - Create a new **GitHub App** with the following settings:
