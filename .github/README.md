@@ -92,7 +92,7 @@ rally:
 - Generate and download a private key from the new App page, and store it in your deployment environment. You can either do this by saving the contents of the key file as the environment variable `PRIVATE_KEY`, or by saving the file directly in the environment and specifying its path with the environment variable `PRIVATE_KEY_PATH`
 - After you have created the **GitHub** App, you will need to install it to the desired **GitHub** Organizations.
   - Select `Install App`
-  - Select `All Repositories` or Select the desired Repositories you wish to watch
+  - Select `All Repositories` or the desired repositories you wish to watch
 
 ### Deployment
 
