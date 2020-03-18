@@ -136,7 +136,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
 - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Probot-Rally` on all repositories in the installed Organization
 
-One of the following is **Required**
+One of the following is **required**:
 - `PRIVATE_KEY` - The contents of the private key for your **GitHub App**. If you're unable to use multi-line environment variables, use base64 encoding to convert the key to a single line string.
 - `PRIVATE_KEY_PATH` - The path to the .pem file for your **GitHub App**.
   (Example: `PRIVATE_KEY_PATH='path/to/key.pem'`)
