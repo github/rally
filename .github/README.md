@@ -87,7 +87,7 @@ rally:
     - **Check suite**
     - **Push**
 
-- Once these have been configured, select the `save` settings at the bottom of the page to continue
+- Once these have been configured, select **save** at the bottom of the page to continue
 - Make a note of the `APP ID` on your newly-created **GitHub App**. You will need to set this as an environment variable when you configure the app
 - Generate and download a private key from the new App page, and store it in your deployment environment. You can either do this by saving the contents of the key file as the environment variable `PRIVATE_KEY`, or by saving the file directly in the environment and specifying its path with the environment variable `PRIVATE_KEY_PATH`
 - After you have created the **GitHub** App, you will need to install it to the desired **GitHub** Organizations.
