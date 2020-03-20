@@ -9,6 +9,7 @@ describe('JiraIssueValidate', () => {
   let robot
   let handler
   let context
+  let rallyClient
   beforeEach(() => {
     robot = {
       log: {
@@ -42,16 +43,26 @@ describe('JiraIssueValidate', () => {
           }))
         }
       },
-      repo: jest.fn().mockImplementation((input) => { return input })
+      repo: jest.fn().mockImplementation((input) => { return input }),
+      payload: {
+        pull_request: validPR
+      }
+    }
+
+    rallyClient = {
+      query: jest.fn().mockImplementation(() => Promise.resolve({
+        TotalResultCount: 1,
+        Results: [
+          {
+            _ref: 'https://rallydomain.com/my-ref'
+          }
+        ]
+      })),
+      update: jest.fn()
     }
   })
 
   describe('get configuration', () => {
-    beforeEach(() => {
-      context.payload = {
-        pull_request: validPR
-      }
-    })
     it('requests config file from repository', async () => {
       await handler.handlePullRequest(context)
       expect(context.config).toHaveBeenCalled()
@@ -71,6 +82,21 @@ describe('JiraIssueValidate', () => {
       expect(context.github.checks.create).toHaveBeenCalledWith(expect.objectContaining({
         conclusion: 'failure'
       }))
+    })
+  })
+
+  describe('set artifacts to complete on pr merge', () => {
+    it('doesn\'t attempt a status change when mergeOnPRBody is set to false in config', async () => {
+      const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
+      configFile.mergeOnPRBody = false
+      await handler.closeArtifactsFromPRBody(context, configFile, rallyClient)
+      expect(rallyClient.update).not.toHaveBeenCalled()
+    })
+
+    it('sets status to completed when mergeOnPRBody is set to true in config', async () => {
+      const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
+      await handler.closeArtifactsFromPRBody(context, configFile, rallyClient)
+      expect(rallyClient.update).toHaveBeenCalled()
     })
   })
 })
