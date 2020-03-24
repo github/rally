@@ -11,7 +11,9 @@ The **GitHub App** will update the **Checks API** with success/failure as the co
 
 ## Get Started
 
-![checks-status](https://user-images.githubusercontent.com/11798972/76283365-07796480-6260-11ea-8a4e-cddec7bc3c9b.png)
+![checks-status](images/probot-rally-2.png)
+
+![rally-pr-connection](images/probot-rally-3.png)
 
 ### How it Works
 
@@ -97,7 +99,7 @@ rally:
 ### Deployment
 
 **Probot-Rally** is based on the **Probot** framework and can be deployed as a standard **NodeJS** application. Ensure that **NPM** is installed in your deployment environment. Also ensure that the following environment variables are configured.
-**Note:** You can also deploy as a **Docker** container. Please view the [Docker Deployment Doc](https://github.com/github/probot-rally/blob/master/docs/DockerDeploy.md) for more info.
+**Note:** You can also deploy as a **Docker** container. Please view the [Docker Deployment Doc](../docs/DockerDeploy.md) for more info.
 
 ```bash
 # Clone repository to local machine
