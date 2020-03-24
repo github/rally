@@ -11,4 +11,6 @@ module.exports = app => {
     'pull_request.unlabeled', 'pull_request.edited',
     'pull_request.reopened', 'pull_request.ready_for_review'],
   async context => handler.handlePullRequest(context))
+
+  app.on('pull_request.closed', async context => handler.handlePullRequestClosed(context))
 }
