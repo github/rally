@@ -3,8 +3,8 @@
   "user": {
     "login": "migarjo"
   },
-  "title": "DOE-1234",
-  "body": "- [x] Give migarjo cookies\n- [x] \n- [x] \n- [x] ",
+  "title": "D3",
+  "body": "/completes D3",
   "base": {
     "repo": {
       "name": "testing-things",
@@ -18,7 +18,7 @@
   },
   "labels": [
     {
-      "name":"TEST-1234"
+      "name":"D3"
     }
   ]
 }

@@ -14,6 +14,9 @@ checkPRTitle: true
 # Check all commit messages for a Rally story/defect (true | false)
 checkCommitMessages: true
 
+# Set Rally Flow State to Complete on merge if the PR Body contains "/completes <DEFECT/STORY ID>"
+mergeOnPRBody: true
+
 # Which projects this repo will link to
 rallyProjects: ['Sample Project', 'devops-engineering']
 
