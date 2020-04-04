@@ -1,6 +1,6 @@
 {
   "name": "probot-rally",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "description": "GitHub <> RallyDev integration",
   "author": "GitHub Professional Services <services@github.com>",
