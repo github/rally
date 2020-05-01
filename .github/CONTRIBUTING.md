@@ -24,6 +24,7 @@ Here are a few things you can do that will increase the likelihood of your pull 
 - Keep your change as focused as possible. If there are multiple changes you would like to make that are not dependent upon each other, consider submitting them as separate pull requests.
 - Write [good commit messages](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
 - Please honor the `<username>/<branch-name>` naming convention to help with sorting branches in the UI
+- **Test your changes**. Many users depend on this app's reliability. Please be sure to test your changes to make sure they do not break the functionality
 
 Work in Progress pull requests are also welcome to get feedback early on, or if there is something blocking you.
 
