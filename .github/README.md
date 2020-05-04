@@ -137,6 +137,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
 - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Probot-Rally` on all repositories in the installed Organization
+- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-validator-config`)
 
 One of the following is **required**:
 - `PRIVATE_KEY` - The contents of the private key for your **GitHub App**. If you're unable to use multi-line environment variables, use base64 encoding to convert the key to a single line string.
@@ -149,3 +150,5 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - Having this file in the root of the repository is what signals the **Probot-Rally GitHub App** to view all configured events for the repository
 - The configuration file allows users to make small customizations to how the bot interacts with their codebase
 - Users will also want to configure `protected branches` to help make sure all rules are followed and enforced by the validator bot
+- If a default configuration for all repositories in an organization is desirable, create a `.github/probot-rally.yml` file in a repository called `[ORG_NAME]/rally-validator-config`. The name of this configuration repository can also be set as an environment variable.
+
