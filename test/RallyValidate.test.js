@@ -21,7 +21,7 @@ describe('JiraIssueValidate', () => {
     handler = new RallyValidate(robot)
 
     const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
-
+    const probotConfigEncodedYaml = Buffer.from(yaml.safeDump(configFile)).toString('base64')
     context = {
       config: jest.fn().mockImplementation(() => Promise.resolve(configFile)),
       github: {
@@ -39,6 +39,11 @@ describe('JiraIssueValidate', () => {
                   sha: '1234lkajsdfkjsdf'
                 }
               ]
+            }
+          })),
+          getContents: jest.fn().mockImplementation(() => Promise.resolve({
+            data: {
+              content: probotConfigEncodedYaml
             }
           }))
         }
