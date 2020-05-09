@@ -10,7 +10,7 @@ jobs:
   monday:
     name: Monday.com
     runs-on: ubuntu-latest
-    if: contains(github.event.issue.labels.*.name, 'monday-task')
+    #if: contains(github.event.issue.labels.*.name, 'monday-task')
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v2
