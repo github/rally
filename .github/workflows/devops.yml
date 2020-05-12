@@ -8,24 +8,38 @@ on:
 
 jobs:
   monday:
-    name: Monday.com 
+    name: Monday.com
     runs-on: ubuntu-latest
+    #if: contains(github.event.issue.labels.*.name, 'monday-task')
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/checkout@v2
-      with:
-        repository: github/monday-action
-        path: actions
-        ssh-key: '${{ secrets.MONDAY_DEPLOY_KEY }}'
-    - name: Setup Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: '3.8'
-    - name: Install dependencies
-      run: python -m pip install --upgrade moncli pyyaml markdown2
-    - name: Create the item in Monday
-      run: python actions/monday.py
-      env:
-        MONDAY_USERNAME: '${{ secrets.MONDAY_USERNAME }}'
-        MONDAY_API_KEY_V1: '${{ secrets.MONDAY_API_KEY_V1 }}'
-        MONDAY_API_KEY_V2: '${{ secrets.MONDAY_API_KEY_V2 }}'
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+
+      - name: Checkout monday-action repo
+        uses: actions/checkout@v2
+        with:
+          repository: github/monday-action
+          path: actions
+          ssh-key: '${{ secrets.MONDAY_DEPLOY_KEY }}'
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.8'
+
+      - name: Setup Pip environment
+        uses: dschep/install-pipenv-action@v1
+      
+      - name: Install dependencies
+        working-directory: actions
+        run: pipenv install
+        
+      - name: Sync to Monday
+        working-directory: actions
+        run: pipenv run python monday.py
+        env:
+          MONDAY_USERNAME: '${{ secrets.MONDAY_USERNAME }}'
+          MONDAY_API_KEY_V1: '${{ secrets.MONDAY_API_KEY_V1 }}'
+          MONDAY_API_KEY_V2: '${{ secrets.MONDAY_API_KEY_V2 }}'
+          MONDAY_CONFIG: '.github/monday.yml'
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
