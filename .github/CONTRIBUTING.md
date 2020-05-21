@@ -7,14 +7,20 @@ We're thrilled that you'd like to contribute to this project. Your help is essen
 
 **With write access**
 1. Clone the repository (only if you do not have write access)
+1. Run `npm install`
 1. Create a new branch: `git checkout -b <username>/<my-branch-name>`
+1. Setup a [GitHub App][GitHub App] and follow the instructions in the [README][README]
+1. Configure your `.env` using the `.env.example` as a template
 1. Make your change
 1. Push and [submit a pull request][pr]
 1. Pat yourself on the back and wait for your pull request to be reviewed and merged.
 
 **Without write access**
 1. [Fork][fork] and clone the repository
+1. Run `npm install`
 1. Create a new branch: `git checkout -b <username>/<my-branch-name>`
+1. Setup a [GitHub App][GitHub App] and follow the instructions in the [README][README]
+1. Configure your `.env` using the `.env.example` as a template
 1. Make your change
 1. Push to your fork and [submit a pull request][pr]
 1. Pat your self on the back and wait for your pull request to be reviewed and merged.
@@ -36,6 +42,8 @@ Work in Progress pull requests are also welcome to get feedback early on, or if 
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Help](https://help.github.com)
 
-[pulls]: https://github.com/github/jira-validator/pulls
-[pr]: https://github.com/github/jira-validator/compare
-[fork]: https://github.com/github/jira-validator/fork
+[pulls]: https://github.com/github/probot-rally/pulls
+[pr]: https://github.com/github/probot-rally/compare
+[fork]: https://github.com/github/probot-rally/fork
+[README]: https://github.com/github/probot-rally#creating-the-github-app-on-your-github-instance
+[GitHub App]: https://github.com/settings/apps/new
