@@ -2,6 +2,9 @@
 board: 'Services: DevOps Engineering'
 group: 'GitHub <> Rally Integration'
 columns:
+  github_link:
+    column_id: link
+    status_colum: status
   assignee:
     column_id: person
     values:
@@ -9,17 +12,9 @@ columns:
         assignee_kind: team
       - name_or_id: primetheus
         assignee_kind: person
-  customer_tag:
-    column_id: tags1
-    tag_name: GitHub
-  github_link:
-    column_id: link
-    status_colum: status
-    status_mapping:
-      - column_label: To Do
-        github_status: open
-      - column_label: Done
-        github_status: closed
+  tags:
+    - column_id: tags1
+      tag_name: GitHub
   status:
     - column_id: status
       column_label: To Do
