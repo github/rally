@@ -1,6 +1,6 @@
 # Probot Rally
 
-A **GitHub App** built with [Probot](https://github.com/probot/probot) that can be configured to:
+A **GitHub App** built with [Probot](https://github.com/probot/probot) that integrates [Rally](https://www.broadcom.com/products/software/agile-development/rally-software) (a project management tool) with GitHub. It can be configured to:
 
 - Check the `title` of a Pull Request for valid **Rally** artifacts
 - Check the `body` of a Pull Request for valid **Rally** artifacts
