@@ -152,5 +152,8 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - Users will also want to configure `protected branches` to help make sure all rules are followed and enforced by the validator bot
 - If a default configuration for all repositories in an organization is desirable, create a `.github/probot-rally.yml` file in a repository called `[ORG_NAME]/rally-validator-config`. The name of this configuration repository can also be set as an environment variable.
 
+## How to contribute
+We invite you to contribute to this **GitHub App**! Check out [CONTRIBUTING](https://github.com/github/probot-rally/blob/master/.github/CONTRIBUTING.md) for details.
+
 ## License
 This project uses the [MIT license](LICENSE)
