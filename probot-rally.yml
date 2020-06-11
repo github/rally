@@ -2,9 +2,6 @@
 # Name of the GitHub Check
 checksName: rally/validator
 
-# Check PR Labels for Rally story/defect (true | false)
-checkPRLabels: true
-
 # Check PR Body for Rally story/defect (true | false)
 checkPRBody: true
 

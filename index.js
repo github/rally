@@ -7,8 +7,7 @@ const RallyValidate = require('./lib/RallyValidate')
 module.exports = app => {
   const handler = new RallyValidate(app)
 
-  app.on(['pull_request.opened', 'pull_request.labeled',
-    'pull_request.unlabeled', 'pull_request.edited',
+  app.on(['pull_request.opened', 'pull_request.edited',
     'pull_request.reopened', 'pull_request.ready_for_review'],
   async context => handler.handlePullRequest(context))
 
