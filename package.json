@@ -1,13 +1,13 @@
 {
-  "name": "probot-rally",
+  "name": "rally",
   "version": "1.0.2",
   "private": true,
   "description": "GitHub <> RallyDev integration",
   "author": "GitHub Professional Services <services@github.com>",
   "license": "ISC",
-  "repository": "https://github.com/github/probot-rally.git",
-  "homepage": "https://github.com/github/probot-rally",
-  "bugs": "https://github.com/github/probot-rally/issues",
+  "repository": "https://github.com/github/rally.git",
+  "homepage": "https://github.com/github/rally",
+  "bugs": "https://github.com/github/rally/issues",
   "keywords": [
     "probot",
     "github",
