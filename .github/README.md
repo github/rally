@@ -144,7 +144,7 @@ One of the following is **required**:
 - `PRIVATE_KEY_PATH` - The path to the .pem file for your **GitHub App**.
   (Example: `PRIVATE_KEY_PATH='path/to/key.pem'`)
 
-## How users can consume Probot-Rally GitHub App
+## How users can consume Rally + GitHub App
 Once you have the **GitHub App** up and running, users will need to add the configuration file to **master** branch to have the **GitHub App** validate their repositories: `.github/rally.yml`
 
 - Having this file in the root of the repository is what signals the **Rally + GitHub App** to view all configured events for the repository
