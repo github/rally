@@ -1,6 +1,6 @@
-#################################
-## Dockerfile for Probot-Rally ##
-#################################
+###################################
+## Dockerfile for Rally + GitHub ##
+###################################
 
 ## Base image
 FROM node:12-alpine
@@ -12,20 +12,20 @@ LABEL version="1.0" \
 
 ## These files are copied separately to allow updates
 ## to the image to be as small as possible
-COPY --chown=node:node package.json /opt/probot-rally/
-COPY --chown=node:node index.js /opt/probot-rally/
-COPY --chown=node:node lib /opt/probot-rally/lib
+COPY --chown=node:node package.json /opt/rally/
+COPY --chown=node:node index.js /opt/rally/
+COPY --chown=node:node lib /opt/rally/lib
 
 ## You should edit .env.example and save it before building this image
 ## Future updates to this Dockerfile _may_ move this over to
 ## pure environment variables in Docker, so it can be passed at the CLI.
 ## This will be purely based on demand
-COPY --chown=node:node .env /opt/probot-rally/
+COPY --chown=node:node .env /opt/rally/
 
 ## This can probably be removed, but users will have to make sure they
 ## run the container, then copy the key. This helps avoid that for folks
 ## using this in their enterprise environments
-COPY --chown=node:node .ssh/probot-rally.pem /opt/probot-rally/.ssh/
+COPY --chown=node:node .ssh/rally.pem /opt/rally/.ssh/
 
 ## We need Python for Probot
 RUN apk add --no-cache make python
@@ -34,10 +34,10 @@ RUN apk add --no-cache make python
 USER node
 
 ## Set our working directory
-WORKDIR /opt/probot-rally
+WORKDIR /opt/rally
 
 ## Not strictly necessary, but set permissions to 400
-RUN chmod 400 /opt/probot-rally/.ssh/probot-rally.pem /opt/probot-rally/.env
+RUN chmod 400 /opt/rally/.ssh/rally.pem /opt/rally/.env
 
 ## Install the app and dependencies
 RUN npm install
