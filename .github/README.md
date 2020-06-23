@@ -17,7 +17,7 @@ The **GitHub App** will update the **Checks API** with success/failure as the co
 
 ### How it Works
 
-Every time a pull request is created or updated, `Rally + GitHub` will check for the existence of a **Rally User Story** or **Defect** in the `label`, `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
+Every time a pull request is created or updated, `Rally + GitHub` will check for the existence of a **Rally User Story** or **Defect** in the `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
 
 ```yml
 ---
