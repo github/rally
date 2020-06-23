@@ -137,7 +137,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
 - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Rally + GitHub` on all repositories in the installed Organization
-- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-validator-config`)
+- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-github-config`)
 
 One of the following is **required**:
 - `PRIVATE_KEY` - The contents of the private key for your **GitHub App**. If you're unable to use multi-line environment variables, use base64 encoding to convert the key to a single line string.
