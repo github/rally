@@ -13,7 +13,7 @@
 ##############
 # Build Vars #
 ##############
-docker_tag: rally
+docker_tag: github/rally
 
 ###############
 # Deploy Vars #
