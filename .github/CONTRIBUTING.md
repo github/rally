@@ -42,8 +42,8 @@ Work in Progress pull requests are also welcome to get feedback early on, or if 
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Help](https://help.github.com)
 
-[pulls]: https://github.com/github/probot-rally/pulls
-[pr]: https://github.com/github/probot-rally/compare
-[fork]: https://github.com/github/probot-rally/fork
-[README]: https://github.com/github/probot-rally#creating-the-github-app-on-your-github-instance
+[pulls]: https://github.com/github/rally/pulls
+[pr]: https://github.com/github/rally/compare
+[fork]: https://github.com/github/rally/fork
+[README]: https://github.com/github/rally#creating-the-github-app-on-your-github-instance
 [GitHub App]: https://github.com/settings/apps/new

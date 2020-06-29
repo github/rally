@@ -20,7 +20,7 @@ describe('JiraIssueValidate', () => {
 
     handler = new RallyValidate(robot)
 
-    const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
+    const configFile = yaml.safeLoad(fs.readFileSync('./rally.yml'))
     const probotConfigEncodedYaml = Buffer.from(yaml.safeDump(configFile)).toString('base64')
     context = {
       config: jest.fn().mockImplementation(() => Promise.resolve(configFile)),
@@ -92,14 +92,14 @@ describe('JiraIssueValidate', () => {
 
   describe('set artifacts to complete on pr merge', () => {
     it('doesn\'t attempt a status change when mergeOnPRBody is set to false in config', async () => {
-      const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
+      const configFile = yaml.safeLoad(fs.readFileSync('./rally.yml'))
       configFile.mergeOnPRBody = false
       await handler.closeArtifactsFromPRBody(context, configFile, rallyClient)
       expect(rallyClient.update).not.toHaveBeenCalled()
     })
 
     it('sets status to completed when mergeOnPRBody is set to true in config', async () => {
-      const configFile = yaml.safeLoad(fs.readFileSync('./probot-rally.yml'))
+      const configFile = yaml.safeLoad(fs.readFileSync('./rally.yml'))
       await handler.closeArtifactsFromPRBody(context, configFile, rallyClient)
       expect(rallyClient.update).toHaveBeenCalled()
     })

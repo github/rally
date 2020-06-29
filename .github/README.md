@@ -1,4 +1,4 @@
-# Probot Rally
+# Rally + GitHub
 
 A **GitHub App** built with [Probot](https://github.com/probot/probot) that integrates [Rally](https://www.broadcom.com/products/software/agile-development/rally-software) (a project management tool) with GitHub. It can be configured to:
 
@@ -17,7 +17,7 @@ The **GitHub App** will update the **Checks API** with success/failure as the co
 
 ### How it Works
 
-Every time a pull request is created or updated, `Probot-rally` will check for the existence of a **Rally User Story** or **Defect** in the `label`, `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
+Every time a pull request is created or updated, `Rally + GitHub` will check for the existence of a **Rally User Story** or **Defect** in the `title`, `body`, or `commit messages`, and then validate that they are in the correct state in **Rally**.
 
 ```yml
 ---
@@ -98,7 +98,7 @@ rally:
 
 ### Deployment
 
-**Probot-Rally** is based on the **Probot** framework and can be deployed as a standard **NodeJS** application. Ensure that **NPM** is installed in your deployment environment. Also ensure that the following environment variables are configured.
+**Rally + GitHub** is based on the **Probot** framework and can be deployed as a standard **NodeJS** application. Ensure that **NPM** is installed in your deployment environment. Also ensure that the following environment variables are configured.
 **Note:** You can also deploy as a **Docker** container. Please view the [Docker Deployment Doc](../docs/DockerDeploy.md) for more info.
 
 ```bash
@@ -106,7 +106,7 @@ rally:
 git clone Path-To-Repository.git
 
 # Change directories into code base
-cd probot-rally
+cd rally
 
 # Install all dependencies
 npm install
@@ -136,24 +136,24 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `RALLY_USERNAME` - Username to authenticate to **Rally**
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
-- `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Probot-Rally` on all repositories in the installed Organization
-- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-validator-config`)
+- `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Rally + GitHub` on all repositories in the installed Organization
+- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-github-config`)
 
 One of the following is **required**:
 - `PRIVATE_KEY` - The contents of the private key for your **GitHub App**. If you're unable to use multi-line environment variables, use base64 encoding to convert the key to a single line string.
 - `PRIVATE_KEY_PATH` - The path to the .pem file for your **GitHub App**.
   (Example: `PRIVATE_KEY_PATH='path/to/key.pem'`)
 
-## How users can consume Probot-Rally GitHub App
-Once you have the **GitHub App** up and running, users will need to add the configuration file to **master** branch to have the **GitHub App** validate their repositories: `.github/probot-rally.yml`
+## How users can consume Rally + GitHub App
+Once you have the **GitHub App** up and running, users will need to add the configuration file to **master** branch to have the **GitHub App** validate their repositories: `.github/rally.yml`
 
-- Having this file in the root of the repository is what signals the **Probot-Rally GitHub App** to view all configured events for the repository
+- Having this file in the root of the repository is what signals the **Rally + GitHub App** to view all configured events for the repository
 - The configuration file allows users to make small customizations to how the bot interacts with their codebase
 - Users will also want to configure `protected branches` to help make sure all rules are followed and enforced by the validator bot
-- If a default configuration for all repositories in an organization is desirable, create a `.github/probot-rally.yml` file in a repository called `[ORG_NAME]/rally-validator-config`. The name of this configuration repository can also be set as an environment variable.
+- If a default configuration for all repositories in an organization is desirable, create a `.github/rally.yml` file in a repository called `[ORG_NAME]/rally-github-config`. The name of this configuration repository can also be set as an environment variable.
 
 ## How to contribute
-We invite you to contribute to this **GitHub App**! Check out [CONTRIBUTING](https://github.com/github/probot-rally/blob/master/.github/CONTRIBUTING.md) for details.
+We invite you to contribute to this **GitHub App**! Check out [CONTRIBUTING](https://github.com/github/rally/blob/master/.github/CONTRIBUTING.md) for details.
 
 ## License
 This project uses the [MIT license](LICENSE)

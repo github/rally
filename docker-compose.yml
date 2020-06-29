@@ -1,7 +1,7 @@
 ---
-###################################
-# Docker compose for Probot-Rally #
-###################################
+#####################################
+# Docker compose for Rally + GitHub #
+#####################################
 
 ###########
 # Version #
@@ -12,7 +12,7 @@ version: '3.3'
 # Set the services #
 ####################
 services:
-    probot-rally:
+    rally:
         # Set the open ports
         ports:
             - '3000:3000'
@@ -23,4 +23,4 @@ services:
             options:
                 max-size: 1g
         # Start the image
-        image: github/probot-rally
+        image: github/rally
