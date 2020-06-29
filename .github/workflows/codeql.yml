@@ -4,15 +4,10 @@ on: [push]
 
 jobs:
   build:
-    strategy:
-      fail-fast: false
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: Anthophila/codeql-action/codeql/init@master
+    - uses: github/codeql-action/init@v1
       with:
         languages: javascript
-    - uses: Anthophila/codeql-action/codeql/finish@master
-    - uses: Anthophila/codeql-action/codeql/upload-sarif@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+    - uses: github/codeql-action/analyze@v1
