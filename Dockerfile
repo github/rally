@@ -8,7 +8,7 @@ FROM node:12-alpine
 ## Set the Labels
 LABEL version="1.0" \
       description="Probot app to verify Rally issues in a Pull Request" \
-      maintainer="GitHub Professional Services <services@github.com>"
+      maintainer="GitHub <opensource+rally@github.com>"
 
 ## These files are copied separately to allow updates
 ## to the image to be as small as possible
