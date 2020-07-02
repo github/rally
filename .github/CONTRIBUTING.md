@@ -37,6 +37,15 @@ Work in Progress pull requests are also welcome to get feedback early on, or if 
 - Create a branch with a name that identifies the user and nature of the changes (similar to `<username>/<branch-purpose>`)
 - Open a pull request and request a review from a member of the appropriate `@github/services-delivery` and/or `@github/services-devops-engineering` teams
 
+## Releasing
+If you are the current maintainer of this project:
+
+1. Observe [Semantic Versioning](https://semver.org/) when deciding on a version number to move to
+1. Draft a [Release](https://github.com/github/rally/releases/new) with a summarized changelog
+1. Ensure you check the box for publishing to the marketplace
+1. Gather consensus from other maintainers
+1. Release it and make it official
+
 ## Resources
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
