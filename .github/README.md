@@ -1,6 +1,6 @@
 # Rally + GitHub
 
-A **GitHub App** built with [Probot](https://github.com/probot/probot) that integrates [Rally](https://www.broadcom.com/products/software/agile-development/rally-software) (a project management tool) with GitHub. It can be configured to:
+A **GitHub App** in active development built with [Probot](https://github.com/probot/probot) that integrates [Rally](https://www.broadcom.com/products/software/agile-development/rally-software) (a project management tool) with GitHub. It can be configured to:
 
 - Check the `title` of a Pull Request for valid **Rally** artifacts
 - Check the `body` of a Pull Request for valid **Rally** artifacts
@@ -153,7 +153,7 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - If a default configuration for all repositories in an organization is desirable, create a `.github/rally.yml` file in a repository called `[ORG_NAME]/rally-github-config`. The name of this configuration repository can also be set as an environment variable.
 
 ## How to contribute
-We invite you to contribute to this **GitHub App**! Check out [CONTRIBUTING](https://github.com/github/rally/blob/master/.github/CONTRIBUTING.md) for details.
+We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/master/.github/CONTRIBUTING.md) for more details.
 
 ## License
 This project uses the [MIT license](LICENSE)
