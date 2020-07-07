@@ -240,15 +240,6 @@ UpdateDockerCompose()
     # Success
     echo "successfully updated docker-compose.yml for testing"
   fi
-
-  echo "Cat of files!"
-  cat .env
-  echo "--------------"
-  cat docker-compose.yml
-  echo "--------------"
-  ls -la /home/runner/work/rally/rally/rally.pem
-  echo "--------------"
-  cat /home/runner/work/rally/rally/rally.pem
 }
 ################################################################################
 #### Function StartContainer ###################################################
@@ -308,6 +299,34 @@ StartContainer()
     echo "Container is up and running..."
     echo "$CHECK_CMD"
   fi
+
+  ########################
+  # Get the container ID #
+  ########################
+  CONTAINER_ID=$("$CHECK_CMD" | awk '{print $1}')
+  echo "Container ID:[$CONTAINER_ID]"
+
+  ###################################
+  # Print the logs of the container #
+  ###################################
+  echo "-------------------------------------------------------"
+  echo "Container logs:"
+  docker logs "$CONTAINER_ID"
+
+  #######################
+  # Load the error code #
+  #######################
+  ERROR_CODE=$?
+
+  ##############################
+  # Check the shell for errors #
+  ##############################
+  if [ $ERROR_CODE -ne 0 ]; then
+    # Error
+    echo "Failed to get logs!"
+    exit 1
+  fi
+
 }
 ################################################################################
 #### Function StopContainer ####################################################
