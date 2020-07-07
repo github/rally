@@ -303,7 +303,7 @@ StartContainer()
   ########################
   # Get the container ID #
   ########################
-  CONTAINER_ID=$("$CHECK_CMD" | cut -d' ' -f1)
+  CONTAINER_ID=$(echo "$CHECK_CMD" | awk '{print $1}')
   echo "Container ID:[$CONTAINER_ID]"
 
   ###################################
