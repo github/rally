@@ -297,13 +297,13 @@ StartContainer()
   else
     # Success
     echo "Container is up and running..."
-    echo "$CHECK_CMD"
+    echo "Return data:[$CHECK_CMD]"
   fi
 
   ########################
   # Get the container ID #
   ########################
-  CONTAINER_ID=$("$CHECK_CMD" | awk '{print $1}')
+  CONTAINER_ID=$("$CHECK_CMD" | cut -d' ' -f1)
   echo "Container ID:[$CONTAINER_ID]"
 
   ###################################
