@@ -43,3 +43,7 @@ jobs:
       ################################
       - name: Build Compile test
         run: ./.automation/build-compile-test.sh
+        env:
+          RALLY_TEST_PEM: ${{ secrets.RALLY_TEST_PEM }}
+          RALLY_TEST_API_KEY: ${{ secrets.RALLY_TEST_API_KEY }}
+          GHE_HOST: ${{ secrets.GHE_HOST }}
