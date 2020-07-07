@@ -38,6 +38,10 @@ Header()
   echo "-----------------------------------------------------------"
   echo "----- GitHub Actions Build Compile Test Rally+GitHub ------"
   echo "-----------------------------------------------------------"
+  echo "GITHUB_SHA:[$GITHUB_SHA]"
+  echo "GITHUB_EVENT_PATH:[$GITHUB_EVENT_PATH]"
+  echo "GITHUB_WORKSPACE:[$GITHUB_WORKSPACE]"
+  echo "-----------------------------------------------------------"
   echo ""
 }
 ################################################################################
