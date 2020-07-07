@@ -140,16 +140,19 @@ UpdateVariables()
   ################
   # Pull in Vars #
   ################
-  KEYWORD="$1"  # Key word to find in .env file
-  VALUE="$2"    # Value for the keyword in .env file
+  KEYWORD="$1"        # Key word to find in .env file
+  VALUE="$2"          # Value for the keyword in .env file
+  UPDATED_KEYWORD=''  # Will have the updated value of keyword
 
   ########################################
   # Check if a hidden value, then update #
   ########################################
   if [[ "$KEYWORD" =~ "#" ]]; then
     # Need to cut of first 2 chars
-    UPDATED=$(echo "$KEYWORD" |cut -c 2- 2>&1)
-    KEYWORD="$UPDATED"
+    UPDATED_KEYWORD=$(echo "$KEYWORD" |cut -c 2- 2>&1)
+  else
+    # No need to trim
+    UPDATED_KEYWORD="$KEYWORD"
   fi
 
   #################
@@ -161,7 +164,7 @@ UpdateVariables()
   #######################################
   # Updating the variables in .env file #
   #######################################
-  UPDATE_CMD=$(sed -i "s|$KEYWORD=.*|$KEYWORD=$VALUE|g" "$CONFIG_FILE" 2>&1)
+  UPDATE_CMD=$(sed -i "s|$KEYWORD=.*|$UPDATED_KEYWORD=$VALUE|g" "$CONFIG_FILE" 2>&1)
 
   #######################
   # Load the error code #
