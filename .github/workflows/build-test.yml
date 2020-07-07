@@ -42,4 +42,4 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Build Compile test
-        run: ./automation/build-compile-test.sh
+        run: ./.automation/build-compile-test.sh
