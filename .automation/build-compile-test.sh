@@ -143,6 +143,15 @@ UpdateVariables()
   KEYWORD="$1"  # Key word to find in .env file
   VALUE="$2"    # Value for the keyword in .env file
 
+  ########################################
+  # Check if a hidden value, then update #
+  ########################################
+  if [[ "$KEYWORD" =~ "#" ]]; then
+    # Need to cut of first 2 chars
+    UPDATED=$(echo "$KEYWORD" |cut -c 2- 2>&1)
+    KEYWORD="$UPDATED"
+  fi
+
   #################
   # Print headers #
   #################
@@ -152,7 +161,7 @@ UpdateVariables()
   #######################################
   # Updating the variables in .env file #
   #######################################
-  UPDATE_CMD=$(sed -i "s/$KEYWORD=.*/$KEYWORD=$VALUE/g" "$CONFIG_FILE" 2>&1)
+  UPDATE_CMD=$(sed -i "s|$KEYWORD=.*|$KEYWORD=$VALUE|g" "$CONFIG_FILE" 2>&1)
 
   #######################
   # Load the error code #
@@ -266,7 +275,7 @@ StartContainer()
   ####################################
   echo "Sleeping for a few seconds to allow container to run..."
   sleep 10s
-  
+
   ###################################################
   # Check to see if the container is up and running #
   ###################################################
