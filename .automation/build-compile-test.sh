@@ -239,7 +239,15 @@ UpdateDockerCompose()
     echo "ERROR! Failed to update docker compose for tests!"
     echo "ERROR:[$UPDATE_CMD]"
     exit 1
+  else
+    # Success
+    echo "successfully updated docker-compose.yml for testing"
   fi
+
+  echo "Cat of files!"
+  cat .env
+  echo "--------------"
+  cat docker-compose.yml
 }
 ################################################################################
 #### Function StartContainer ###################################################
