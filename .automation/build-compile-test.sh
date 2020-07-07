@@ -81,7 +81,7 @@ CreatePEM()
   #######################################
   # Create the pem file from the secret #
   #######################################
-  CREATE_CMD=$(echo "$PRIVATE_KEY_DATA" > "$PRIVATE_KEY_PATH" 2>&1)
+  CREATE_CMD=$("$PRIVATE_KEY_DATA" > "$PRIVATE_KEY_PATH" 2>&1)
 
   ############################
   # Validate the file exists #
@@ -292,10 +292,12 @@ StartContainer()
   if [ $ERROR_CODE -ne 0 ]; then
     # ERROR
     echo "ERROR! Failed to find a running container!"
+    echo "ERROR:[$CHECK_CMD]"
     exit 1
   else
     # Success
     echo "Container is up and running..."
+    echo "$CHECK_CMD"
   fi
 }
 ################################################################################
