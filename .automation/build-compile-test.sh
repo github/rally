@@ -72,6 +72,12 @@ CreateTestEnv()
 #### Function CreatePEM ########################################################
 CreatePEM()
 {
+  #################
+  # Print headers #
+  #################
+  echo "-------------------------------------------------------"
+  echo "Creating .pem for testing..."
+
   #######################################
   # Create the pem file from the secret #
   #######################################
@@ -204,7 +210,7 @@ UpdateDockerCompose()
   # Print headers #
   #################
   echo "-------------------------------------------------------"
-  echo "Updating .env variable:[$KEYWORD]..."
+  echo "Updating docker-compose.yml for testing..."
 
   #######################################
   # Updating the variables in .env file #
@@ -221,11 +227,21 @@ UpdateDockerCompose()
   ##############################
   if [ $ERROR_CODE -ne 0 ]; then
     # Error
+    echo "ERROR! Failed to update docker compose for tests!"
+    echo "ERROR:[$UPDATE_CMD]"
+    exit 1
+  fi
 }
 ################################################################################
 #### Function StartContainer ###################################################
 StartContainer()
 {
+  #################
+  # Print headers #
+  #################
+  echo "-------------------------------------------------------"
+  echo "Starting the container..."
+
   #####################################
   # Start the newly created container #
   #####################################
@@ -245,6 +261,12 @@ StartContainer()
     exit 1
   fi
 
+  ####################################
+  # Sleep for 10 sec to allow to run #
+  ####################################
+  echo "Sleeping for a few seconds to allow container to run..."
+  sleep 10s
+  
   ###################################################
   # Check to see if the container is up and running #
   ###################################################
@@ -271,6 +293,12 @@ StartContainer()
 #### Function StopContainer ####################################################
 StopContainer()
 {
+  #################
+  # Print headers #
+  #################
+  echo "-------------------------------------------------------"
+  echo "Stopping the container..."
+
   #############################
   # Stop the Docker container #
   #############################
@@ -321,6 +349,11 @@ UpdateDockerCompose
 # Start the container #
 #######################
 StartContainer
+
+######################
+# Stop the container #
+######################
+StopContainer
 
 ##########
 # Footer #
