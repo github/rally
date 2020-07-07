@@ -24,7 +24,7 @@ IMAGE_NAME='github/rally'                         # Name of the container to bui
 TAG='latest'                                      # Tag for the container
 GHE_HOST="${GHE_HOST}"                            # GHES Server URL
 PRIVATE_KEY_DATA="${RALLY_TEST_PEM}"              # PEM key data to connect
-PRIVATE_KEY_PATH="${GITHUB_WORKSPACE}/rally.pem"  # Path to drop the pem file
+PRIVATE_KEY_PATH='/opt/rally/.ssh/rally.pem'      # Path to drop the pem file
 RALLY_API_KEY="${RALLY_TEST_API_KEY}"             # Rally API key to auth
 
 ################################################################################
@@ -69,7 +69,6 @@ CreateTestEnv()
   UpdateVariables "WEBHOOK_SECRET" "$WEBHOOK_SECRET"
   UpdateVariables "# GHE_HOST" "$GHE_HOST"
   UpdateVariables "PRIVATE_KEY_PATH" "$PRIVATE_KEY_PATH"
-  UpdateVariables "RALLY_USERNAME" "$RALLY_USERNAME"
   UpdateVariables "RALLY_API_KEY" "$RALLY_API_KEY"
 }
 ################################################################################
@@ -95,6 +94,9 @@ CreatePEM()
     echo "ERROR! Failed to create pem key file at:[$PRIVATE_KEY_PATH]"
     echo "ERROR:[$CREATE_CMD]"
     exit 1
+  else
+    # Success
+    echo "Successfully created rally.pem at:[$PRIVATE_KEY_PATH]"
   fi
 
   ###################################################
@@ -110,6 +112,9 @@ CreatePEM()
     echo "ERROR! Failed to create pem key file at:[$GITHUB_WORKSPACE/.ssh/rally.pem]"
     echo "ERROR:[$CREATE_CMD]"
     exit 1
+  else
+    # Success
+    echo "Successfully created rally.pem at:[$GITHUB_WORKSPACE/.ssh/rally.pem]"
   fi
 }
 ################################################################################
@@ -216,6 +221,9 @@ MakeCopy()
     echo "ERROR! Failed to make [.env] file for updates!"
     echo "ERROR:[$COPY_CMD]"
     exit 1
+  else
+    # Success
+    echo "Sucessfully created .env at:[$GITHUB_WORKSPACE/$CONFIG_FILE]"
   fi
 }
 ################################################################################
