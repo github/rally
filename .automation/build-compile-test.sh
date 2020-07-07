@@ -84,7 +84,7 @@ CreatePEM()
   ###################################################
   # Copy to SSH folder for dockerfile build as well #
   ###################################################
-  COPY_CMD=$(mkdir .ssh ; cp "$PRIVATE_KEY_PATH" "$GITHUB_WORKSPACE/.ssh/" 2>&1)
+  COPY_CMD=$(mkdir .ssh ; "$PRIVATE_KEY_DATA" > "$GITHUB_WORKSPACE/.ssh/rally.pem" 2>&1)
 
   ############################
   # Validate the file exists #
