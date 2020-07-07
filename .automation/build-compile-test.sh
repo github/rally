@@ -81,24 +81,6 @@ CreatePEM()
   echo "-------------------------------------------------------"
   echo "Creating .pem for testing..."
 
-  #######################################
-  # Create the pem file from the secret #
-  #######################################
-  CREATE_CMD=$("$PRIVATE_KEY_DATA" > "$PRIVATE_KEY_PATH" 2>&1)
-
-  ############################
-  # Validate the file exists #
-  ############################
-  if [ ! -s "$PRIVATE_KEY_PATH" ]; then
-    # The file is empty or does not exist
-    echo "ERROR! Failed to create pem key file at:[$PRIVATE_KEY_PATH]"
-    echo "ERROR:[$CREATE_CMD]"
-    exit 1
-  else
-    # Success
-    echo "Successfully created rally.pem at:[$PRIVATE_KEY_PATH]"
-  fi
-
   ###################################################
   # Copy to SSH folder for dockerfile build as well #
   ###################################################
