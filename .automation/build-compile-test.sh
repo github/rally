@@ -251,6 +251,10 @@ UpdateDockerCompose()
   cat .env
   echo "--------------"
   cat docker-compose.yml
+  echo "--------------"
+  ls -la /home/runner/work/rally/rally/rally.pem
+  echo "--------------"
+  cat /home/runner/work/rally/rally/rally.pem
 }
 ################################################################################
 #### Function StartContainer ###################################################
