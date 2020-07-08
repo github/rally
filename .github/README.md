@@ -4,7 +4,6 @@ A **GitHub App** in active development built with [Probot](https://github.com/pr
 
 - Check the `title` of a Pull Request for valid **Rally** artifacts
 - Check the `body` of a Pull Request for valid **Rally** artifacts
-- Check the `labels` of a Pull Request for valid **Rally** artifacts
 - Check the `commit messages` of a Pull Request for valid **Rally** artifacts
 
 The **GitHub App** will update the **Checks API** with success/failure as the conditions are met, and provide a detailed report of the artifacts (i.e. defects, user stories) found and their Flow States in **Rally**.
@@ -22,10 +21,7 @@ Every time a pull request is created or updated, `Rally + GitHub` will check for
 ```yml
 ---
 # Name of the GitHub Check
-checksName: rally/validator
-
-# Check PR Labels for Rally story/defect (true | false)
-checkPRLabels: true
+checksName: github/rally
 
 # Check PR Body for Rally story/defect (true | false)
 checkPRBody: true
@@ -57,25 +53,22 @@ artifactStatuses: ['Defined', 'In-Progress']
 commentOnPull: false
 
 rally:
+  # Optionally override the global Rally URL
   server: https://rally1.rallydev.com
-  # Leave these blank if you use an API key
-  #username: rallyUser
-  #password: rallyPass
-  # This is required if we don't use username/password
-  api_key: _1234abc567...
   # Which workspace OID this repo will link to
   workspace: 12345
 
 ```
 
 ### Creating the GitHub App on your GitHub instance
+- You can follow the detailed documentation at [Creating a GitHub App](https://developer.github.com/apps/building-github-apps/creating-a-github-app/). Below is the condensed version of the documentation
 - On your GitHub instance, visit the `settings` page on the Organization that you want to own the **GitHub** App, and navigate to the `GitHub Apps` section.
   - You can access this page by visiting the following url:
     `https://<MY_GITHUB_HOSTNAME>/organizations/<MY_ORG_NAME>/settings/apps`
 - Create a new **GitHub App** with the following settings:
   - **Webhook URL**: URL of the machine on which this app has been deployed (Example: `http://ip.of.machine:3000`)
   - **Homepage URL**: URL of the machine on which this app has been deployed (Example: `http://ip.of.machine:3000`)
-  - **Webhook Secret**: The webhook secret that will be or has been defined as an environment variable in your deployment environment as `WEBHOOK_SECRET`
+  - **Webhook Secret**: *REQUIRED* The webhook secret that will be or has been defined as an environment variable in your deployment environment as `WEBHOOK_SECRET`
   - **Permissions**:
     - **Checks**: Read & write
     - **Commit statuses**: Read & write
@@ -103,7 +96,7 @@ rally:
 
 ```bash
 # Clone repository to local machine
-git clone Path-To-Repository.git
+git clone https://github.com/github/rally
 
 # Change directories into code base
 cd rally
