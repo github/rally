@@ -4,7 +4,7 @@ This document will help outline the steps needed to deploy the **Rally + GitHub*
 ## How to Deploy
 
 ### Create GitHub App on GitHub
-You can find all the steps to create the GitHub app from the [README](https://github.com/github/rally/blob/master/.github/README.md) on the root of the source code. You will need the **endpoints**, and `.pem` created to be able to deploy the **GitHub App**.
+You can find all the steps to create the GitHub app from the [README](https://github.com/github/rally/blob/main/.github/README.md) on the root of the source code. You will need the **endpoints**, and `.pem` created to be able to deploy the **GitHub App**.
 
 ### Prepare the source code
 You will first need to clone the source code to your local environment that will run the **Docker** container.
