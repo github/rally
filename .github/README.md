@@ -147,7 +147,7 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - If a _per_-repository configuration needs to be managed from a central repository, create a `.github/rally/[REPO_NAME].yml` file in a repository called `[ORG_NAME]/rally-github-config` instead.
 
 ## How to contribute
-We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/master/.github/CONTRIBUTING.md) for more details.
+We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/main/.github/CONTRIBUTING.md) for more details.
 
 ## License
 This project uses the [MIT license](LICENSE)
