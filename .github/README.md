@@ -144,6 +144,7 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - The configuration file allows users to make small customizations to how the bot interacts with their codebase
 - Users will also want to configure `protected branches` to help make sure all rules are followed and enforced by the validator bot
 - If a default configuration for all repositories in an organization is desirable, create a `.github/rally.yml` file in a repository called `[ORG_NAME]/rally-github-config`. The name of this configuration repository can also be set as an environment variable.
+- If a _per_-repository configuration needs to be managed from a central repository, create a `.github/rally/[REPO_NAME].yml` file in a repository called `[ORG_NAME]/rally-github-config` instead.
 
 ## How to contribute
 We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/main/.github/CONTRIBUTING.md) for more details.
