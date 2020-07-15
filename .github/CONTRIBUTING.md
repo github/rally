@@ -1,11 +1,14 @@
 # Contributing
+
 :wave: Hi there!
 We're thrilled that you'd like to contribute to this project. Your help is essential for keeping it great.
 
 ## Submitting a pull request
+
 [Pull Requests][pulls] are used for adding new functionality, fixing bugs, improving documentation, and improving the developer experience overall.
 
-**With write access**
+**With write access:**
+
 1. Clone the repository (only if you do not have write access)
 1. Run `npm install`
 1. Create a new branch: `git checkout -b <username>/<my-branch-name>`
@@ -15,7 +18,8 @@ We're thrilled that you'd like to contribute to this project. Your help is essen
 1. Push and [submit a pull request][pr]
 1. Pat yourself on the back and wait for your pull request to be reviewed and merged.
 
-**Without write access**
+**Without write access:**
+
 1. [Fork][fork] and clone the repository
 1. Run `npm install`
 1. Create a new branch: `git checkout -b <username>/<my-branch-name>`
@@ -35,9 +39,10 @@ Here are a few things you can do that will increase the likelihood of your pull 
 Work in Progress pull requests are also welcome to get feedback early on, or if there is something blocking you.
 
 - Create a branch with a name that identifies the user and nature of the changes (similar to `<username>/<branch-purpose>`)
-- Open a pull request and request a review from a member of the appropriate `@github/services-delivery` and/or `@github/services-devops-engineering` teams
+- Open a pull request and request a review from a member of the `@github/ps-delivery` team
 
 ## Releasing
+
 If you are the current maintainer of this project:
 
 1. Observe [Semantic Versioning](https://semver.org/) when deciding on a version number to move to
@@ -47,6 +52,7 @@ If you are the current maintainer of this project:
 1. Release it and make it official
 
 ## Resources
+
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Using Pull Requests](https://help.github.com/articles/about-pull-requests/)
 - [GitHub Help](https://help.github.com)
