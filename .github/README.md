@@ -123,8 +123,8 @@ nohup npm start 2>&1 >> /path/to/output.log &
 ### Environment Variables
 
 - `APP_ID` - The App ID of the **GitHub App**
-- `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `WEBHOOK_SECRET` - The secret to prevent man in the middle attacks
+- `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `RALLY_SERVER` - URL to connect to **Rally**
 - `RALLY_USERNAME` - Username to authenticate to **Rally**
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
