@@ -1,8 +1,6 @@
 <!-- Please ensure your PR title is brief and descriptive for a good changelog entry -->
 <!-- Link to issue if there is one -->
-<!-- markdownlint-disable -->
 Fixes #
-<!-- markdownlint-restore -->
 
 <!-- Describe what the changes are -->
 ## Proposed Changes
