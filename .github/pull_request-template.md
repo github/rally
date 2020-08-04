@@ -10,6 +10,5 @@ Fixes #
 -
 
 ## Readiness Checklist
-- [ ] Label as `breaking` if this is a large fundamental change
-- [ ] Label as either `automation`, `bug`, `documentation`, `enhancement`, `infrastructure`, or `performance`
+
 - [ ] If this change requires documentation, it has been included in this pull request
