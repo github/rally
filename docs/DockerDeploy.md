@@ -15,14 +15,16 @@ You will first need to clone the source code to your local environment that will
 - Create `.env` from `.env.example`
   - `cp .env.example .env`
 - Update the `.env` with thew needed fields, such as:
-  - `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
   - `APP_ID` - The App ID of the **GitHub App**
-  - `RALLY_USERNAME` - The username to connect to **Rally**
-  - `RALLY_PASSWORD` - The password to connect to **Rally**
-  - `RALLY_HOSTNAME` - This is the hostname of your **Rally** instance (can be configured in the YAML)
-  - `RALLY_STRICT_SSL` - Set this to false for testing in a development environment (can be configured in the YAML)
-  - `RALLY_PORT` - If not using the standard HTTP/HTTPS ports (can be configured in the YAML)
-  - `RALLY_PROTOCOL` - Whether to use `http` or `https`... useful for testing in Dev (can be configured in the YAML)
+  - `WEBHOOK_SECRET` - The secret to prevent man in the middle attacks
+  - `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
+  - `RALLY_SERVER` - URL to connect to **Rally**
+  - `RALLY_USERNAME` - Username to authenticate to **Rally**
+  - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
+  - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
+![rally-token](https://user-images.githubusercontent.com/2894107/89300774-56b89b00-d62e-11ea-94c9-066e12ac5246.png)
+  - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Rally + GitHub` on all repositories in the installed Organization
+  - `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-github-config`)
 
 You will need to copy the contents of the `.pem` created from **GitHub** to the location: `/opt/rally/.ssh/rally.pem`. This will be used when the container is built and deployed.
 

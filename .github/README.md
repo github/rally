@@ -123,12 +123,13 @@ nohup npm start 2>&1 >> /path/to/output.log &
 ### Environment Variables
 
 - `APP_ID` - The App ID of the **GitHub App**
-- `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `WEBHOOK_SECRET` - The secret to prevent man in the middle attacks
+- `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `RALLY_SERVER` - URL to connect to **Rally**
 - `RALLY_USERNAME` - Username to authenticate to **Rally**
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
+![rally-token](https://user-images.githubusercontent.com/2894107/89300774-56b89b00-d62e-11ea-94c9-066e12ac5246.png)
 - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Rally + GitHub` on all repositories in the installed Organization
 - `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-github-config`)
 
