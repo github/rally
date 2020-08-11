@@ -23,18 +23,18 @@
   },
   "dependencies": {
     "outdent": "^0.7.1",
-    "probot": "^9.11.2",
+    "probot": "^9.13.0",
     "rally": "^2.1.3"
   },
   "devDependencies": {
-    "jest": "^25.2.7",
-    "nock": "^12.0.3",
-    "nodemon": "^2.0.2",
+    "jest": "^26.3.0",
+    "nock": "^13.0.4",
+    "nodemon": "^2.0.4",
     "smee-client": "^1.1.0",
-    "standard": "^14.3.3"
+    "standard": "^14.3.4"
   },
   "resolutions": {
-    "minimist": ">=1.2.3",
+    "minimist": ">=1.2.5",
     "kind-of": ">=6.0.3"
   },
   "engines": {
