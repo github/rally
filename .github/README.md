@@ -21,7 +21,7 @@ Every time a pull request is created or updated, `Rally + GitHub` will check for
 ```yml
 ---
 # Name of the GitHub Check
-checksName: github/rally
+checksName: integrations/rally
 
 # Check PR Body for Rally story/defect (true | false)
 checkPRBody: true
