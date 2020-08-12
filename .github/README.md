@@ -12,7 +12,7 @@ The **GitHub App** will update the **Checks API** with success/failure as the co
 
 ![checks-status](images/rally-integration.png)
 
-![rally-pr-connection](images/probot-rally-3.png)
+![rally-pr-connection](images/rally-github-2.png)
 
 ### How it Works
 
