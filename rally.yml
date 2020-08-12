@@ -1,6 +1,6 @@
 ---
 # Name of the GitHub Check
-checksName: rally/validator
+checksName: integrations/rally
 
 # Check PR Body for Rally story/defect (true | false)
 checkPRBody: true
