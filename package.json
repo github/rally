@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "outdent": "^0.7.1",
+    "prettier": "^2.0.5",
     "probot": "^9.13.0",
     "rally": "^2.1.3"
   },
