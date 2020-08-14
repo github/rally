@@ -4,7 +4,7 @@
   "private": true,
   "description": "GitHub <> RallyDev integration",
   "author": "GitHub <opensource+rally@github.com>",
-  "license": "ISC",
+  "license": "MIT",
   "repository": "https://github.com/github/rally.git",
   "homepage": "https://github.com/github/rally",
   "bugs": "https://github.com/github/rally/issues",
