@@ -166,4 +166,4 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/main/.github/CONTRIBUTING.md) for more details.
 
 ## License
-This project uses the [MIT license](LICENSE)
+This project uses the [MIT license](../LICENSE)
