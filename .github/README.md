@@ -32,32 +32,46 @@ checkPRTitle: true
 # Check all commit messages for a Rally story/defect (true | false)
 checkCommitMessages: true
 
-# Which projects this repo will link to
-rallyProjects: ['Sample Project', 'devops-engineering']
-
-# List of valid Rally artifacts to check
-  # Valid values:
-    # defect
-    # defectsuite
-    # task
-    # testcase
-    # hierarchicalrequirement
-    # userstory
-    # story
-rallyObjects: ['defect', 'userstory']
-
-# List of Rally statuses that an issue must be in in order to pass
-artifactStatuses: ['Defined', 'In-Progress']
+# Set Rally Flow State to Complete on merge if the PR Body contains "/completes <DEFECT/STORY ID>"
+mergeOnPRBody: true
 
 # Comment on the PR in addition to the check message? (true | false)
 commentOnPull: false
 
 rally:
-  # Optionally override the global Rally URL
   server: https://rally1.rallydev.com
+
+  ## Leave these blank if you use an API key
+  ##username: rallyUser
+  ##password: rallyPass
+  ## This is required if we don't use username/password
+  ## NOTE: If you set this in your .env file then you can
+  ## leave this commented out. It will override your .env
+  #api_key: _1234abc567...
+
   # Which workspace OID this repo will link to
   workspace: 12345
 
+  # Which projects this repo will link to.
+  # To have it connect to any project, leave this value blank
+  projects:
+    - Sample Project
+    - devops-engineering
+
+  # List of valid Rally objects to check
+  objects:
+    - defect
+    #- defectsuite
+    #- task
+    #- testcase
+    #- hierarchicalrequirement
+    - userstory
+    #- story
+
+  # List of Rally states that an issue must be in in order to pass
+  states:
+    - Defined
+    - In-Progress
 ```
 
 ### Creating the GitHub App on your GitHub instance
@@ -123,6 +137,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 ### Environment Variables
 
 - `APP_ID` - The App ID of the **GitHub App**
+- `BOT_NAME` - The name of the bot
 - `WEBHOOK_SECRET` - The secret to prevent man in the middle attacks
 - `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `RALLY_SERVER` - URL to connect to **Rally**
@@ -131,7 +146,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
 ![rally-token](https://user-images.githubusercontent.com/2894107/89300774-56b89b00-d62e-11ea-94c9-066e12ac5246.png)
 - `ENFORCE_ALL_REPOS` - **true** or **false**, will set enforcement of `Rally + GitHub` on all repositories in the installed Organization
-- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `rally-github-config`)
+- `ORG_CONFIG_REPO_NAME` - Repository name where an organization-level configuration can set default behavior for all repositories (Default: `.github`)
 
 One of the following is **required**:
 - `PRIVATE_KEY` - The contents of the private key for your **GitHub App**. If you're unable to use multi-line environment variables, use base64 encoding to convert the key to a single line string.
