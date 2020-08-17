@@ -20,12 +20,12 @@ COPY --chown=node:node lib /opt/rally/lib
 ## Future updates to this Dockerfile _may_ move this over to
 ## pure environment variables in Docker, so it can be passed at the CLI.
 ## This will be purely based on demand
-COPY --chown=node:node .env /opt/rally/
+# COPY --chown=node:node .env /opt/rally/
 
 ## This can probably be removed, but users will have to make sure they
 ## run the container, then copy the key. This helps avoid that for folks
 ## using this in their enterprise environments
-COPY --chown=node:node .ssh/rally.pem /opt/rally/.ssh/
+# COPY --chown=node:node .ssh/rally.pem /opt/rally/.ssh/
 
 ## We need Python for Probot
 RUN apk add --no-cache make python
@@ -37,7 +37,7 @@ USER node
 WORKDIR /opt/rally
 
 ## Not strictly necessary, but set permissions to 400
-RUN chmod 400 /opt/rally/.ssh/rally.pem /opt/rally/.env
+# RUN chmod 400 /opt/rally/.ssh/rally.pem /opt/rally/.env
 
 ## Install the app and dependencies
 RUN npm install
