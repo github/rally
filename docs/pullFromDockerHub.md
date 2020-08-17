@@ -3,12 +3,12 @@ The **GitHub Rally** Probot can be pulled from **DockerHub** and deployed using 
 The only work needed would be loading the correct environment variables.
 
 ## Pull Image down from DockerHub
-- Currently the image is hosted at `docker://admiralawkbar/rally`
-- You can pull the image down with: `docker pull admiralawkbar/rally:latest` or a specific version
+- Currently the image is hosted at `docker://github/rally`
+- You can pull the image down with: `docker pull github/rally:latest` or a specific version
 
 ## Run Container with environment variables
 - You can then run the downloaded container by passing all information as environment variables
-  - `docker run -e APP_ID=<123> -e WEBHOOK_SECRET=<SECRET> admiralawkbar/rally`
+  - `docker run -e APP_ID=<123> -e WEBHOOK_SECRET=<SECRET> github/rally`
 - You could run using docker compose
 ```yml
 ---
