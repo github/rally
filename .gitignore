@@ -105,3 +105,6 @@ dist
 
 # Private key
 *.pem
+
+# IntelliJ IDEA
+.idea
