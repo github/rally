@@ -1,1 +1,3 @@
-* @primetheus @zkoppert @admiralawkbar @migarjo @steffen
+# Users that can approve pull requests
+# @dependabot-bot needed for .github/workflows/auto-merge-depedabot.yml
+* @primetheus @zkoppert @admiralawkbar @migarjo @steffen @dependabot-bot
