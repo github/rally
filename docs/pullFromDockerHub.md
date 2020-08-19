@@ -1,5 +1,5 @@
 # Pull Rally Probot and run image from DockerHub
-The **GitHub Rally** Probot can be pulled from **DockerHub** and deployed using your container environment.
+The **Rally + GitHub** app can be pulled from **Docker Hub** and deployed using your container environment.
 The only work needed would be loading the correct environment variables.
 
 ## Pull Image down from DockerHub
