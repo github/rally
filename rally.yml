@@ -33,6 +33,8 @@ rally:
 
   # Which projects this repo will link to.
   # To have it connect to any project, leave this value blank
+  # Optional - Leave it commented or set to `Any` to allow from any
+  #            project in the workspace
   projects:
     - Sample Project
     - devops-engineering
