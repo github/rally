@@ -20,8 +20,21 @@
           {{#each config}}
             <label for="{{key}}">{{key}}:</label>
             <input type="text" class="form-control input-sm" id="{{key}}" name="{{key}}" default="{{value}}"><br>
+          <!-- Turn our true/false settings into a radio selection
+            {{#if (eq key "false") }}
+              <label for="{{key}}">{{key}}:</label>
+              <div class="radio-group">
+                <input class="radio-input" id="option-a" type="radio" name="options">
+                <label class="radio-label" for="option-a">True</label>
+                <input class="radio-input" id="option-b" type="radio" name="options">
+                <label class="radio-label" for="option-b">False</label>
+              </div>
+            {{else}}
+              <label for="{{key}}">{{key}}:</label>
+              <input type="text" class="form-control input-sm" id="{{key}}" name="{{key}}" default="{{value}}"><br>
+            {{/if}}
           {{/each}}
-
+          -->
           <div class="form-actions">
             <br>
             <button type="submit" class="btn btn-primary">Save changes</button>
