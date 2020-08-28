@@ -1,6 +1,9 @@
 const RallyValidate = require('./lib/RallyValidate')
+const dotenv = require('dotenv');
 const express = require('express')
 const path = require('path')
+
+const { config } = require('./lib/setup')
 
 /**
  * Resolve a template path by basename in the `views` directory
@@ -45,9 +48,8 @@ module.exports = app => {
   router.use(express.static(path.join(__dirname, 'public')))
 
   router.get('/', (_, res) => {
-    const setup = require('./lib/setup.js')
-    console.log(setup)
     const index = getTemplatePath('setup')
-    res.render(index, { title: 'Rally + GitHub: Setup', config: setup.config })
+    const fields = Object.keys(config).map(key => ({ key, value: config[key] }))
+    res.render(index, { title: 'Rally + GitHub: Setup', config: fields })
   });
 };
