@@ -17,17 +17,13 @@
         </h1>
 
         <form method="POST" action="/setup">
-          {{#each config}}
+          {{#each form}}
             <div class="form-group">
               <div class="form-group-header">
-                <label for="{{ key }}">{{ key }}</label>
+                <label for="{{ env }}">{{ name }}</label>
               </div>
               <div class="form-group-body">
-                {{#if (eq key "PRIVATE_KEY")}}
-                <textarea class="form-control" name="{{ key }}">{{ value }}</textarea>
-                {{else}}
-                <input class="form-control" type="text" name="{{ key }}" value="{{ value }}" />
-                {{/if}}
+                <input class="form-control" type="text" name="{{ env }}" value="{{lookup ../config env}}" />
               </div>
             </div>
           {{/each}}

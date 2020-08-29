@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const express = require('express')
 const path = require('path')
 
-const { writeConfig, config } = require('./lib/setup');
+const { writeConfig, readConfig, getVarConfig } = require('./lib/setup');
 
 /**
  * Resolve a template path by basename in the `views` directory
@@ -40,7 +40,6 @@ module.exports = app => {
 
   const index = getTemplatePath('setup')
   const title = 'Rally + GitHub: Setup'
-  const fields = Object.keys(config).map(key => ({ key, value: config[key] }))
 
   const router = app.route('/setup')
 
@@ -53,20 +52,22 @@ module.exports = app => {
   router.use(bodyParser.urlencoded({ extended: true }))
 
   router.get('/', (_, res) => {
-    res.render(index, { title, config: fields })
+    const currentConfig = readConfig()
+    const form = getVarConfig()
+    res.render(index, { title, form, config: currentConfig })
   });
 
   router.post('/', (req, res) => {
+    const currentConfig = readConfig()
+    const form = getVarConfig()
+
     const newConfig = {
-      ...config,
+      ...currentConfig,
       ...req.body
     }
 
     writeConfig(newConfig)
-    const newFields = Object.keys(newConfig).map(key => ({ key, value: newConfig[key] }))
 
-    console.log(newFields)
-
-    res.render(index, { title, config: newFields })
+    res.render(index, { title, form, config: currentConfig })
   })
 };
