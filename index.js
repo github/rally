@@ -1,9 +1,9 @@
 const RallyValidate = require('./lib/RallyValidate')
-const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 const express = require('express')
 const path = require('path')
 
-const { config } = require('./lib/setup')
+const { writeConfig, config } = require('./lib/setup');
 
 /**
  * Resolve a template path by basename in the `views` directory
@@ -38,6 +38,10 @@ module.exports = app => {
   app.on(['check_run.rerequested', 'check_suite.rerequested'], async context => handler.rerunCheck(context))
   app.on('pull_request.closed', async context => handler.handlePullRequestClosed(context))
 
+  const index = getTemplatePath('setup')
+  const title = 'Rally + GitHub: Setup'
+  const fields = Object.keys(config).map(key => ({ key, value: config[key] }))
+
   const router = app.route('/setup')
 
   /*
@@ -46,10 +50,23 @@ module.exports = app => {
    * from <approot>/public/css/main.css
    */
   router.use(express.static(path.join(__dirname, 'public')))
+  router.use(bodyParser.urlencoded({ extended: true }))
 
   router.get('/', (_, res) => {
-    const index = getTemplatePath('setup')
-    const fields = Object.keys(config).map(key => ({ key, value: config[key] }))
-    res.render(index, { title: 'Rally + GitHub: Setup', config: fields })
+    res.render(index, { title, config: fields })
   });
+
+  router.post('/', (req, res) => {
+    const newConfig = {
+      ...config,
+      ...req.body
+    }
+
+    writeConfig(newConfig)
+    const newFields = Object.keys(newConfig).map(key => ({ key, value: newConfig[key] }))
+
+    console.log(newFields)
+
+    res.render(index, { title, config: newFields })
+  })
 };

@@ -16,14 +16,18 @@
           {{title}}
         </h1>
 
-        <form action="#">
+        <form method="POST" action="/setup">
           {{#each config}}
             <div class="form-group">
               <div class="form-group-header">
                 <label for="{{ key }}">{{ key }}</label>
               </div>
               <div class="form-group-body">
+                {{#if (eq key "PRIVATE_KEY")}}
+                <textarea class="form-control" name="{{ key }}">{{ value }}</textarea>
+                {{else}}
                 <input class="form-control" type="text" name="{{ key }}" value="{{ value }}" />
+                {{/if}}
               </div>
             </div>
           {{/each}}
