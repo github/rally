@@ -143,6 +143,7 @@ nohup npm start 2>&1 >> /path/to/output.log &
 - `WEBHOOK_SECRET` - The secret to prevent man in the middle attacks
 - `GHE_HOST` - This is a required field for **GitHub Enterprise Server** implementations (_Example: github.mycompany.com_)
 - `RALLY_SERVER` - URL to connect to **Rally**
+- `RALLY_PROXY` - Proxy URL for connections to Rally from self-hosted integrations
 - `RALLY_USERNAME` - Username to authenticate to **Rally**
 - `RALLY_PASSWORD` - Password to `RALLY_USERNAME` to authenticate to **Rally** (*Note:* `RALLY_API_KEY` is preferred method)
 - `RALLY_API_KEY` - API key to authenticate to **Rally** instead of `RALLY_USERNAME` and `RALLY_PASSWORD`
