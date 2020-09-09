@@ -4,6 +4,7 @@ const yaml = require('js-yaml')
 const fs = require('fs')
 
 const validPR = require('./fixtures/valid_pull_request')
+const validRepo = require('./fixtures/valid_repository')
 
 describe('JiraIssueValidate', () => {
   let robot
@@ -50,7 +51,8 @@ describe('JiraIssueValidate', () => {
       },
       repo: jest.fn().mockImplementation((input) => { return input }),
       payload: {
-        pull_request: validPR
+        pull_request: validPR,
+        repository: validRepo
       }
     }
 
