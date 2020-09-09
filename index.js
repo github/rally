@@ -1,9 +1,9 @@
 const RallyValidate = require('./lib/RallyValidate')
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 const express = require('express')
 const path = require('path')
 
-const { writeConfig, readConfig, getVarConfig } = require('./lib/setup');
+const { writeConfig, readConfig, getVarConfig } = require('./lib/setup')
 
 /**
  * Resolve a template path by basename in the `views` directory
@@ -75,11 +75,24 @@ module.exports = app => {
   router.use(express.static(path.join(__dirname, 'public')))
   router.use(bodyParser.urlencoded({ extended: true }))
 
+  // only allow accessing from localhost, need to combine this with CSRF protection
+  router.use((req, res, next) => {
+    const { remoteAddress } = req.socket;
+
+    if (remoteAddress === '127.0.0.1' || remoteAddress === '::1' | remoteAddress === '::ffff:127.0.0.1') {
+      next()
+      return
+    }
+
+    res.writeHead(404)
+    res.end()
+  });
+
   router.get('/', (_, res) => {
     const currentConfig = readConfig()
     const form = getVarConfig()
     res.render(index, { title, form, config: currentConfig, valid: true })
-  });
+  })
 
   router.post('/', (req, res) => {
     const currentConfig = readConfig()
@@ -112,4 +125,4 @@ module.exports = app => {
 
     res.render(index, { title, form, config: newConfig, valid, flash })
   })
-};
+}
