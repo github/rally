@@ -16,9 +16,13 @@
           {{title}}
         </h1>
 
+        {{#if flash}}
+        <div class="flash flash-{{flash.status}}">{{flash.message}}</div>
+        {{/if}}
+
         <form method="POST" action="/setup">
           {{#each form}}
-            <div class="form-group">
+            <div class="form-group {{#if errored}}errored{{/if}}">
               <div class="form-group-header">
                 <label for="{{env}}">{{name}}</label>
                 <span class="tooltipped tooltipped-multiline" aria-label="{{description}}">
@@ -30,6 +34,7 @@
               <div class="form-group-body">
                 <input class="form-control" type="text" name="{{ env }}" value="{{lookup ../config env}}" />
               </div>
+              <p class="note error">This field is required.</p>
             </div>
           {{/each}}
           <div class="form-actions">

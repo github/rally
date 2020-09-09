@@ -25,6 +25,30 @@ function getTemplatePath(name) {
 }
 
 /**
+ * Null/empty check
+ * 
+ * See https://stackoverflow.com/a/3215653
+ * @param {*} e 
+ */
+function isEmpty(e) {
+  if (typeof(e) === "string") {
+    e = e.trim();
+  }
+
+  switch (e) {
+    case "":
+    case 0:
+    case "0":
+    case null:
+    case false:
+    case typeof(e) == "undefined":
+      return true;
+    default:
+      return false;
+  }
+}
+
+/**
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Application} app
  */
@@ -54,20 +78,38 @@ module.exports = app => {
   router.get('/', (_, res) => {
     const currentConfig = readConfig()
     const form = getVarConfig()
-    res.render(index, { title, form, config: currentConfig })
+    res.render(index, { title, form, config: currentConfig, valid: true })
   });
 
   router.post('/', (req, res) => {
     const currentConfig = readConfig()
     const form = getVarConfig()
+    let valid = true;
+    const flash = { status: 'success', message: 'Configuration saved.' };
 
     const newConfig = {
       ...currentConfig,
       ...req.body
     }
 
-    writeConfig(newConfig)
+    // Iterate over field config to check for empty values on required fields
+    for (const fields of form) {
+      if (fields.required) {
+        const value = newConfig[fields.env]
+        if (isEmpty(value)) {
+          fields.errored = isEmpty(value)
+          valid = false
+        }
+      }
+    }
 
-    res.render(index, { title, form, config: currentConfig })
+    if (valid) {
+      writeConfig(newConfig)
+    } else {
+      flash.status = 'error'
+      flash.message = 'Configuration invalid. See errors below.'
+    }
+
+    res.render(index, { title, form, config: newConfig, valid, flash })
   })
 };
