@@ -1,0 +1,68 @@
+---
+- name: App id
+  description: The ID of your GitHub App
+  env: APP_ID
+
+- name: Webhook secret
+  description: The webhook secret for GitHub
+  env: WEBHOOK_SECRET
+
+- name: Bot name
+  description: The name of your bot
+  env: BOT_NAME
+
+- name: Node environment
+  description: Set the NODE_ENV
+  env: NODE_ENV
+
+- name: Log level
+  description: The logging level
+  env: LOG_LEVEL
+
+- name: Webhook proxy url
+  description: Go to https://smee.io/new set this to the URL that you are redirected to.
+  env: WEBHOOK_PROXY_URL
+
+- name: GitHub Enterprise host
+  description: Set to use for your GitHub Enterprise instance instead of GitHub.com
+  env: GHE_HOST
+
+- name: Private key path
+  description: Create a private key in your organization and reference the path here
+  env: PRIVATE_KEY_PATH
+
+- name: Rally server
+  description: Rally server url
+  env: RALLY_SERVER
+
+- name: Rally username
+  description: Username to auth into Rally
+  env: RALLY_USERNAME
+
+- name: Rally password
+  description: Password to connect and access all Rally information
+  env: RALLY_PASSWORD
+
+- name: Rally API key
+  description: API Key for connecting to Rally
+  env: RALLY_API_KEY
+
+- name: Enforce all repos
+  description: |-
+    This setting will enforce this app on all repos in an org.
+    Many companies will have multiple ticketing systems, and some teams
+    will use GitHub for non-Scrum development. Setting this to `false` allows
+    the app to be enforced on a per-repo level.
+    Will return a failing test if no config exists and this is "true".
+    If "false", no status is returned
+  env: ENFORCE_ALL_REPOS
+
+- name: Org config repo name
+  description: |-
+    The name of a configuration repository that can contain a config 
+    yml file that applies to all repos within the organization. This
+    will look for .github/rally.yml in the config repository. If
+    a file doesn't exist, it will search for a repo-specific configuration
+    If not set, this will look for a default repo at 
+    [ORG_NAME}/.github
+  env: ORG_CONFIG_REPO_NAME

@@ -1,10 +1,12 @@
 const RallyValidate = require('./lib/RallyValidate')
+const ExtendedSetup = require('probot-extended-setup')
 
 /**
  * This is the main entrypoint to your Probot app
  * @param {import('probot').Application} app
  */
 module.exports = app => {
+  app.load(ExtendedSetup)
   const handler = new RallyValidate(app)
 
   app.on(['pull_request.opened', 'pull_request.edited',
