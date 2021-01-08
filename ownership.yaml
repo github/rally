@@ -7,7 +7,7 @@ ownership:
     kind: team
     maintainer: primetheus
     team: github/ps-delivery
-    exec_sponsor: dcdrennan
+    exec_sponsor: suekirkmorris
     product_manager: mattcantstop
     repo: https://github.com/github/rally
     mention: github/ps-delivery
