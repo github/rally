@@ -22,7 +22,7 @@
     "test:watch": "jest --watch --notify --notifyMode=change --coverage"
   },
   "dependencies": {
-    "outdent": "^0.7.1",
+    "outdent": "^0.8.0",
     "probot": "^9.14.1",
     "rally": "^2.1.3",
     "js-yaml": "^3.14.0"
