@@ -12,6 +12,9 @@ Please search on the [issue tracker](../) before creating one.
 **Describe the bug**
 A clear and concise description of what the bug is.
 
+**Version**
+What version number of this application are you using? (ie. v1.0.1)
+
 **To Reproduce**
 Steps to reproduce the behavior:
 1. Go to '...'
