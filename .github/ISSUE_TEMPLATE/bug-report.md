@@ -13,7 +13,7 @@ Please search on the [issue tracker](../) before creating one.
 A clear and concise description of what the bug is.
 
 **Version**
-What version number of this application are you using? (ie. v1.0.1)
+What version number of this application are you using? _(ie. v1.0.1)_
 
 **To Reproduce**
 Steps to reproduce the behavior:
