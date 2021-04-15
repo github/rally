@@ -15,7 +15,7 @@ checkCommitMessages: true
 mergeOnPRBody: true
 
 # Comment on the PR in addition to the check message? (true | false)
-commentOnPull: false
+commentOnPull: true
 
 rally:
   server: https://rally1.rallydev.com

@@ -35,7 +35,7 @@ describe('JiraIssueValidate', () => {
               commits: [
                 {
                   commit: {
-                    message: 'hello!'
+                    message: 'fix: US1234 hello!'
                   },
                   sha: '1234lkajsdfkjsdf'
                 }
@@ -47,6 +47,9 @@ describe('JiraIssueValidate', () => {
               content: probotConfigEncodedYaml
             }
           }))
+        },
+        issues: {
+          createComment: jest.fn().mockImplementation(() => Promise.resolve({}))
         }
       },
       repo: jest.fn().mockImplementation((input) => { return input }),
@@ -61,12 +64,33 @@ describe('JiraIssueValidate', () => {
         TotalResultCount: 1,
         Results: [
           {
-            _ref: 'https://rallydomain.com/my-ref'
+            _ref: 'https://rallydomain.com/my-ref',
+            Project: {
+              _refObjectName: "Sample Project"
+            },
+            ScheduleState: "Defined"
           }
         ]
       })),
       update: jest.fn()
     }
+    initializeRallyClient = jest.fn().mockImplementation(() => Promise.resolve(rallyClient))
+  })
+
+  describe('hook', () => {
+    it('pull_request.synchronize', async () => {
+      await handler.handlePullRequestWithRally(context, initializeRallyClient)
+      expect(context.config).toHaveBeenCalled()
+      expect(context.github.checks.create.mock.calls).toEqual([
+        [context.repo(expect.objectContaining({
+          "status": "in_progress",
+        }))],
+        [context.repo(expect.objectContaining({
+          "conclusion": "success",
+          "status": "completed",
+        }))]
+      ])
+    })
   })
 
   describe('get configuration', () => {
