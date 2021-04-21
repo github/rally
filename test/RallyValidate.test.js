@@ -74,12 +74,12 @@ describe('JiraIssueValidate', () => {
       })),
       update: jest.fn()
     }
-    initializeRallyClient = jest.fn().mockImplementation(() => Promise.resolve(rallyClient))
+    initializeRallyClient = jest.fn().mockImplementation(() => Promise.resolve(rallyClient)) // eslint-disable-line
   })
 
   describe('hook', () => {
     it('pull_request.synchronize', async () => {
-      await handler.handlePullRequestWithRally(context, initializeRallyClient)
+      await handler.handlePullRequestWithRally(context, initializeRallyClient) // eslint-disable-line
       expect(context.config).toHaveBeenCalled()
       expect(context.github.checks.create.mock.calls).toEqual([
         [context.repo(expect.objectContaining({
