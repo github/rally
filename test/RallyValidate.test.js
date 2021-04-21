@@ -66,9 +66,9 @@ describe('JiraIssueValidate', () => {
           {
             _ref: 'https://rallydomain.com/my-ref',
             Project: {
-              _refObjectName: "Sample Project"
+              _refObjectName: 'Sample Project'
             },
-            ScheduleState: "Defined"
+            ScheduleState: 'Defined'
           }
         ]
       })),
@@ -83,11 +83,11 @@ describe('JiraIssueValidate', () => {
       expect(context.config).toHaveBeenCalled()
       expect(context.github.checks.create.mock.calls).toEqual([
         [context.repo(expect.objectContaining({
-          "status": "in_progress",
+          status: 'in_progress'
         }))],
         [context.repo(expect.objectContaining({
-          "conclusion": "success",
-          "status": "completed",
+          conclusion: 'success',
+          status: 'completed'
         }))]
       ])
     })
