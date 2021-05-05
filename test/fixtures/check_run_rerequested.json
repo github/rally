@@ -1,0 +1,17 @@
+{
+  "check_run": {
+    "name": "integrations/rally",
+    "check_suite": {
+      "pull_requests": [
+        {
+          "number": 100
+        }
+      ]
+    }
+  },
+  "repository": {
+    "owner": {
+      "login": "acme"
+    }
+  }
+}
