@@ -5,8 +5,9 @@ const fs = require('fs')
 
 const validPR = require('./fixtures/valid_pull_request')
 const validRepo = require('./fixtures/valid_repository')
+const checkRunRerequested = require('./fixtures/check_run_rerequested')
 
-describe('JiraIssueValidate', () => {
+describe('RallyIssueValidate', () => {
   let robot
   let handler
   let context
@@ -15,6 +16,7 @@ describe('JiraIssueValidate', () => {
     robot = {
       log: {
         debug: jest.fn(),
+        info:  jest.fn(),
         error: jest.fn()
       }
     }
@@ -22,12 +24,13 @@ describe('JiraIssueValidate', () => {
     handler = new RallyValidate(robot)
 
     const configFile = yaml.load(fs.readFileSync('./rally.yml'))
-    const probotConfigEncodedYaml = Buffer.from(yaml.dump(configFile)).toString('base64')
+    const configAllPaths = {...configFile, commentOnPull: true}
+    const probotConfigEncodedYaml = Buffer.from(yaml.dump(configAllPaths)).toString('base64')
     context = {
-      config: jest.fn().mockImplementation(() => Promise.resolve(configFile)),
+      config: jest.fn().mockImplementation(() => Promise.resolve(configAllPaths)),
       github: {
         checks: {
-          create: jest.fn()
+          create: jest.fn().mockImplementation(() => Promise.resolve(configAllPaths))
         },
         repos: {
           compareCommits: jest.fn().mockImplementation(() => Promise.resolve({
@@ -47,6 +50,11 @@ describe('JiraIssueValidate', () => {
               content: probotConfigEncodedYaml
             }
           }))
+        },
+        pulls: {
+          get: jest.fn().mockImplementation(() => Promise.resolve({
+            data: validPR
+          })),
         },
         issues: {
           createComment: jest.fn().mockImplementation(() => Promise.resolve({}))
@@ -68,11 +76,12 @@ describe('JiraIssueValidate', () => {
             Project: {
               _refObjectName: 'Sample Project'
             },
-            ScheduleState: 'Defined'
+            ScheduleState: 'Defined',
+            Connections: { _ref: "connections-ref" }
           }
         ]
       })),
-      update: jest.fn()
+      update: jest.fn().mockImplementation(() => Promise.resolve({}))
     }
     initializeRallyClient = jest.fn().mockImplementation(() => Promise.resolve(rallyClient)) // eslint-disable-line
   })
@@ -95,21 +104,21 @@ describe('JiraIssueValidate', () => {
 
   describe('get configuration', () => {
     it('requests config file from repository', async () => {
-      await handler.handlePullRequest(context)
+      await handler.handlePullRequestWithRally(context, initializeRallyClient)
       expect(context.config).toHaveBeenCalled()
     })
 
     it('doesn\'t run when config is empty and ENFORCE_ALL_REPOS is false', async () => {
       context.config = jest.fn().mockImplementation(() => Promise.resolve(undefined))
-      process.env.ENFORCE_ALL_REPOS = false
-      await handler.handlePullRequest(context)
+      process.env.ENFORCE_ALL_REPOS = 'false'
+      await handler.handlePullRequestWithRally(context, initializeRallyClient)
       expect(context.github.checks.create).not.toHaveBeenCalled()
     })
 
     it('returns fail status when config is empty and ENFORCE_ALL_REPOS is true', async () => {
       context.config = jest.fn().mockImplementation(() => Promise.resolve(undefined))
-      process.env.ENFORCE_ALL_REPOS = true
-      await handler.handlePullRequest(context)
+      process.env.ENFORCE_ALL_REPOS = 'true'
+      await handler.handlePullRequestWithRally(context, initializeRallyClient)
       expect(context.github.checks.create).toHaveBeenCalledWith(expect.objectContaining({
         conclusion: 'failure'
       }))
@@ -128,6 +137,24 @@ describe('JiraIssueValidate', () => {
       const configFile = yaml.load(fs.readFileSync('./rally.yml'))
       await handler.closeArtifactsFromPRBody(context, configFile, rallyClient)
       expect(rallyClient.update).toHaveBeenCalled()
+    })
+  })
+
+  describe('rerequested', () => {
+    it('check_run rerequested', async () => {
+      context.payload = checkRunRerequested
+      context.name = 'check_run'
+      await handler.rerunCheckWithRally(context, initializeRallyClient)
+      expect(context.config).toHaveBeenCalled()
+      expect(context.github.checks.create.mock.calls).toEqual([
+        [context.repo(expect.objectContaining({
+          "status": "in_progress",
+        }))],
+        [context.repo(expect.objectContaining({
+          "conclusion": "success",
+          "status": "completed",
+        }))]
+      ])
     })
   })
 })
