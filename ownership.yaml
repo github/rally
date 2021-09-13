@@ -4,7 +4,7 @@ ownership:
   - name: rally
     long_name: Rally + GitHub
     description: Probot app to integrate GitHub with Rally
-    kind: team
+    kind: code
     maintainer: primetheus
     team: github/ps-delivery
     exec_sponsor: suekirkmorris
