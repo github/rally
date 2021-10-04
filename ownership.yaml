@@ -10,7 +10,6 @@ ownership:
     exec_sponsor: suekirkmorris
     product_manager: mattcantstop
     repo: https://github.com/github/rally
-    mention: github/ps-delivery
     sev1:
       issue: https://github.com/github/rally/issues
       tta: '2 business days'
