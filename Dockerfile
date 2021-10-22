@@ -3,7 +3,7 @@
 ###################################
 
 ## Base image
-FROM node:14-alpine
+FROM node:17-alpine
 
 ## Set the Labels
 LABEL version="1.0" \
