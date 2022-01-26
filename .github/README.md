@@ -164,6 +164,7 @@ Once you have the **GitHub App** up and running, users will need to add the conf
 - If a default configuration for all repositories in an organization is desirable, create a `.github/rally.yml` file in a repository called `[ORG_NAME]/.github`. 
     - The name of this configuration repository can also be set as an environment variable (i.e., this bot can look in a repository other than `[ORG_NAME]/.github`).
     - Additionally, if a _per_-repository configuration needs to be managed from this central configuration repository, create such configuration files under a folder named `.github/rally` (e.g., `.github/rally/[REPO_NAME].yml`).
+    - Please note that the `rally.yml` file must still be placed in a `.github` folder, even if the repository itself is named `.github` (at least at the time of [this update](https://github.com/github/rally/blob/68e3294f044999748fdf61cb163ac60531a03ee8/lib/RallyValidate.js#L109)).
 
 ## How to contribute
 We invite you to contribute to this **GitHub App**! Check out [Issues](https://github.com/github/rally/issues) (especially those labeled `help wanted` or `good first issue`) and jump over to [CONTRIBUTING](https://github.com/github/rally/blob/main/.github/CONTRIBUTING.md) for more details.
