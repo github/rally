@@ -34,7 +34,7 @@
     "smee-client": "^1.2.2",
     "sonarlint": "^1.1.0",
     "prettier": "^2.2.1",
-    "standard": "^16.0.3"
+    "standard": "^17.0.0"
   },
   "resolutions": {
     "minimist": ">=1.2.5",
