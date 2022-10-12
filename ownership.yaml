@@ -5,10 +5,10 @@ ownership:
     long_name: Rally + GitHub
     description: Probot app to integrate GitHub with Rally
     kind: code
-    maintainer: primetheus
+    maintainer: colossus9
     team: github/ps-delivery
-    exec_sponsor: suekirkmorris
-    product_manager: mattcantstop
+    exec_sponsor: toniboyd
+    product_manager: colossus9
     repo: https://github.com/github/rally
     sev1:
       issue: https://github.com/github/rally/issues
