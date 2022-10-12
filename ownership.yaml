@@ -8,8 +8,8 @@ ownership:
     maintainer: colossus9
     team: github/ps-delivery
     exec_sponsor: toniboyd
-    product_manager: colossus9
     repo: https://github.com/github/rally
+    tier: 2
     sev1:
       issue: https://github.com/github/rally/issues
       tta: '2 business days'
