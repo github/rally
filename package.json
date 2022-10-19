@@ -30,7 +30,7 @@
   "devDependencies": {
     "jest": "^26.6.3",
     "nock": "^13.1.1",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.20",
     "smee-client": "^1.2.2",
     "sonarlint": "^1.1.0",
     "prettier": "^2.2.1",
