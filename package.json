@@ -33,7 +33,7 @@
     "nodemon": "^2.0.12",
     "smee-client": "^1.2.2",
     "sonarlint": "^1.1.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.8.1",
     "standard": "^16.0.3"
   },
   "resolutions": {
