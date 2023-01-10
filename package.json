@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "outdent": "^0.8.0",
-    "probot": "^9.14.1",
+    "probot": "^12.2.9",
     "rally": "^2.1.3",
     "js-yaml": "^4.1.0"
   },
