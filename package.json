@@ -23,14 +23,14 @@
   },
   "dependencies": {
     "outdent": "^0.8.0",
-    "probot": "^9.14.1",
+    "probot": "^12.3.0",
     "rally": "^2.1.3",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
     "jest": "^26.6.3",
     "nock": "^13.1.1",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.20",
     "smee-client": "^1.2.2",
     "sonarlint": "^1.1.0",
     "prettier": "^2.2.1",
